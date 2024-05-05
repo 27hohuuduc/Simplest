@@ -1,6 +1,8 @@
 import * as vscode from 'vscode';
 import HiddenContext from './hidden';
 
+const helpBtn = "Here";
+
 let save: Function;
 
 export function activate({ subscriptions, workspaceState }: vscode.ExtensionContext) {
@@ -11,9 +13,11 @@ export function activate({ subscriptions, workspaceState }: vscode.ExtensionCont
 		workspaceState.update("state", hiddenContext.state);
 	};
 
-	vscode.window.showInformationMessage("Watch more on Github", "Click here").then(item => {
-		vscode.env.openExternal(vscode.Uri.parse(
-			'https://github.com/27hohuuduc'));
+	vscode.window.showInformationMessage("Watch more on my Github.", helpBtn).then(item => {
+		if (item === helpBtn) {
+			vscode.env.openExternal(vscode.Uri.parse(
+				'https://github.com/27hohuuduc'));
+		}
 	});
 
 	vscode.workspace.onDidChangeTextDocument(event => {

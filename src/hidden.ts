@@ -1,6 +1,6 @@
 import * as vscode from 'vscode';
 
-const commandId = "simplest.hidden";
+const commandId = "Suy.hidden";
 
 export default class HiddenContext {
 

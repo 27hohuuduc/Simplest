@@ -1,14 +1,18 @@
 {
-  "name": "simplest",
-  "displayName": "Simplest",
+  "name": "suy",
+  "displayName": "Suy",
   "description": "Some useful features, not surprising but it's good.",
   "author": {
     "name": "DucHo",
-    "email": "27hohuuduc@gmail.com",
+    "email": "own@hohuuduc.com",
     "url": "https://github.com/27hohuuduc"
   },
   "publisher": "DucHo",
   "version": "1.0.0",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/27hohuuduc/Suy.git"
+  },
   "engines": {
     "vscode": "^1.82.0"
   },
@@ -48,10 +52,10 @@
     ],
     "configuration": [
       {
-        "title": "Simplest",
+        "title": "Suy",
         "order": 0,
         "properties": {
-          "simplest.include": {
+          "suy.include": {
             "type": "array",
             "items": {
               "type": "string"

@@ -1,0 +1,96 @@
+{
+  "name": "simplest",
+  "displayName": "Simplest",
+  "description": "Some useful features, not surprising but it's good.",
+  "author": {
+    "name": "DucHo",
+    "email": "27hohuuduc@gmail.com",
+    "url": "https://github.com/27hohuuduc"
+  },
+  "publisher": "DucHo",
+  "version": "1.0.0",
+  "engines": {
+    "vscode": "^1.82.0"
+  },
+  "categories": [
+    "Extension Packs"
+  ],
+  "activationEvents": [
+    "workspaceContains:**/*.*"
+  ],
+  "main": "./out/extension.js",
+  "contributes": {
+    "keybindings": [
+      {
+        "key": "ctrl+alt+r",
+        "command": "runCommands",
+        "when": "workbench.explorer.openEditorsView.active",
+        "args": {
+          "commands": [
+            {
+              "command": "workbench.action.terminal.focus"
+            },
+            {
+              "command": "workbench.action.terminal.sendSequence",
+              "args": {
+                "text": "\u001b"
+              }
+            },
+            {
+              "command": "workbench.action.terminal.sendSequence",
+              "args": {
+                "text": "npm start\u000D"
+              }
+            }
+          ]
+        }
+      }
+    ],
+    "configuration": [
+      {
+        "title": "Simplest",
+        "order": 0,
+        "properties": {
+          "simplest.include": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "default": [
+              "**/.git",
+              "**/.svn",
+              "**/.hg",
+              "**/CVS",
+              "**/.DS_Store",
+              "**/Thumbs.db",
+              "**/.vscode",
+              "**/.angular",
+              "**/*.spec.ts"
+            ],
+            "markdownDescription": "Extended functionality for `#files.exclude#`.\n\n**Be careful because it will overwrite files**"
+          }
+        }
+      }
+    ]
+  },
+  "scripts": {
+    "vscode:prepublish": "npm run compile",
+    "compile": "tsc -p ./",
+    "watch": "tsc -watch -p ./",
+    "pretest": "npm run compile && npm run lint",
+    "lint": "eslint src --ext ts",
+    "test": "node ./out/test/runTest.js"
+  },
+  "devDependencies": {
+    "@types/vscode": "^1.82.0",
+    "@types/mocha": "^10.0.2",
+    "@types/node": "18.x",
+    "@typescript-eslint/eslint-plugin": "^6.7.3",
+    "@typescript-eslint/parser": "^6.7.3",
+    "eslint": "^8.50.0",
+    "glob": "^10.3.3",
+    "mocha": "^10.2.0",
+    "typescript": "^5.2.2",
+    "@vscode/test-electron": "^2.3.4"
+  }
+}
